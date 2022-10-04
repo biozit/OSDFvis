@@ -3,11 +3,11 @@ import subprocess
 import os
 import traceback
 
-file_lorigins = open("/opt/origins.txt", "r")
+file_lorigins = open("origins.txt", "r")
 lorigins = lines = file_lorigins.read().splitlines()
-
+db_pass = open("pass", "r")
 URL="http://graph.t2.ucsd.edu:8086"
-password=""
+password=str(db_pass.readline().strip())
 user="cachemon"
 db="cachemon_db"
 
