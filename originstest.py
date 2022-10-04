@@ -5,7 +5,7 @@ import traceback
 
 file_lorigins = open("origins.txt", "r")
 lorigins = lines = file_lorigins.read().splitlines()
-db_pass = open("pass", "r")
+db_pass = open("/opt/pass", "r")
 URL="http://graph.t2.ucsd.edu:8086"
 password=str(db_pass.readline().strip())
 user="cachemon"
