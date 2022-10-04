@@ -96,7 +96,7 @@ for origin in lorigins:
         #        traceback.print_exc()
 
         try:
-                executeCommandBD(dbc,2);
+              
                 ioradd = origin.split(" ")[0]
                 oradd = origin.split(" ")[0]
                 oradd = oradd.split("//")[1]
