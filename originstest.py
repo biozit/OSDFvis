@@ -97,7 +97,7 @@ for origin in lorigins:
 
         try:
                 executeCommandBD(dbc,2);
-                ioradd = oradd
+                ioradd = origin.split(" ")[0]
                 oradd = origin.split(" ")[0]
                 oradd = oradd.split("//")[1]
                 oradd = oradd.split(":")[0]
