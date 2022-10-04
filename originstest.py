@@ -73,27 +73,27 @@ def getLatency(datoutput):
                 return "timeout" 
 
 for origin in lorigins:
-        try:
-                print(origin)
-                oradd = origin.split(" ")[0]
-                if(origin[0] == 'h'):
-                      path = origin.replace(" ","")
-                      dd = "wget -O /dev/null --report-speed=bits " +path
-                      ex = executeCommandBD(dd,1)
-                      resp = getSpeed(ex,1)
-                else:
-                      path = origin.split(" ")
-                      path = path[0] + "/" + path[1]
-                      dd = "/opt/OSDFvis/xrdcopy -f " +path + " ." 
-                      ex = executeCommandBD(dd,1)
-                      resp = getSpeed(ex,2)
-                dbc = " "
-                dbc = "curl --user " +user+":"+password+ " -XPOST " + URL+"/write?db="+db+" --data-binary 'heatmap,origin="+oradd+"|"+cache+" value="+str(resp)+"'";
-        except Exception as e:
-                dbc = "curl --user " +user+":"+password+ " -XPOST " + URL+"/write?db="+db+" --data-binary 'heatmap,origin="+oradd+"|"+cache+" value=-100'";
-                executeCommandBD(dbc,1);
-                print(e)
-                traceback.print_exc()
+       #try:
+        #        print(origin)
+        #        oradd = origin.split(" ")[0]
+        #        if(origin[0] == 'h'):
+        #              path = origin.replace(" ","")
+        #              dd = "wget -O /dev/null --report-speed=bits " +path
+        #              ex = executeCommandBD(dd,1)
+        #              resp = getSpeed(ex,1)
+        #        else:
+        #              path = origin.split(" ")
+        #              path = path[0] + "/" + path[1]
+        #              dd = "/opt/OSDFvis/xrdcopy -f " +path + " ." 
+        #              ex = executeCommandBD(dd,1)
+        #              resp = getSpeed(ex,2)
+        #        dbc = " "
+        #        dbc = "curl --user " +user+":"+password+ " -XPOST " + URL+"/write?db="+db+" --data-binary 'heatmap,origin="+oradd+"|"+cache+" value="+str(resp)+"'";
+        #except Exception as e:
+        #        dbc = "curl --user " +user+":"+password+ " -XPOST " + URL+"/write?db="+db+" --data-binary 'heatmap,origin="+oradd+"|"+cache+" value=-100'";
+        #        executeCommandBD(dbc,1);
+        #        print(e)
+        #        traceback.print_exc()
 
         try:
                 executeCommandBD(dbc,2);
