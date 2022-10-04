@@ -1,0 +1,8 @@
+root://stash.osgconnect.net:1094 /osgconnect/public/fandri/cacheTestPerformance1000/stashcache.t2.ucsd.edu
+root://sc-origin2000.chtc.wisc.edu:1094 /chtc/PUBLIC/matyas/osdf-monitoring/testFileSize1GB
+root://gandalf.phys.uconn.edu:1094 /gluex/uconn0/test/testFileSize1GB
+root://cn447.storrs.hpc.uconn.edu:1094 /gluex/uconn1/rawdata/test/testFileSize1GB
+root://origin.ligo.caltech.edu:1094 /gwdata/O2/strain.4k/frame.v1/H1/1163919360/H-H1_GWOSC_O2_4KHZ_R1-1164947456-4096.gwf 
+root://dtn1902.jlab.org:2094 /jlab/eic/ATHENA/RECO/acadia-v2.1/SIDIS/Lambda_ABCONV/hepmc_Lambda4_ab_hiDiv_18x275.0503.raw.root
+root://stash-origin.icecube.wisc.edu:1094 /icecube/PUBLIC/groups/perf-mon/perf-mon-1GB
+root://stashcache.fnal.gov:1094 /pnfs/fnal.gov/usr/dune/persistent/stash/Cosmics/Fermilab/CORSIKA/standard/p_showers_099100.db
