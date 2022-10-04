@@ -84,7 +84,7 @@ for origin in lorigins:
                 else:
                       path = origin.split(" ")
                       path = path[0] + "/" + path[1]
-                      dd = "/opt/OSDFvis -f " +path + " ." 
+                      dd = "/opt/OSDFvis/xrdcopy -f " +path + " ." 
                       ex = executeCommandBD(dd,1)
                       resp = getSpeed(ex,2)
                 dbc = " "
