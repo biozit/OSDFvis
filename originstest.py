@@ -94,7 +94,6 @@ for origin in lorigins:
         #        executeCommandBD(dbc,1);
         #        print(e)
         #        traceback.print_exc()
-
         try:
               
                 ioradd = origin.split(" ")[0]
@@ -107,8 +106,6 @@ for origin in lorigins:
                 dbc = "curl --user " +user+":"+password+ " -XPOST " + URL+"/write?db="+db+" --data-binary 'heatmaplt,origin="+ioradd+"|"+cache+" value="+str(resp)+"'";
                 executeCommandBD(dbc,1);
         except Exception as e:
-                dbc = "curl --user " +user+":"+password+ " -XPOST " + URL+"/write?db="+db+" --data-binary 'heatmaplt,origin="+ioradd+"|"+cache+" value=-100'";
-                executeCommandBD(dbc,1);
                 print(e)
                 traceback.print_exc()
 
