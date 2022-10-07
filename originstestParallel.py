@@ -21,7 +21,7 @@ db="cachemon_db"
 
 key = 'CACHE_FQDN'
 for line in open("/etc/xrootd-environment", 'r'):
-    if(line.find('CACHE_FQDN') == True):
+    if(line.find('CACHE_FQDN') == -1):
         t1 = line.split(" ");
         cache = t1[1].split("=")[1]
 
