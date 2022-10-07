@@ -142,7 +142,7 @@ for origin in lorigins:
                 print("MEDIA___________"+str(media))
                 
                 dbc = "curl --user " +user+":"+password+ " -XPOST " + URL+"/write?db="+db+" --data-binary 'heatmappar,origin="+oradd+"|"+cache+" value="+str(media)+"'";
-                
+                print(dbc)
                 executeCommandBD(dbc,1);
                 print(dbc)
                 for n in range(0, tests):
