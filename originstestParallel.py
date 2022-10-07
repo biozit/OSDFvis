@@ -10,7 +10,7 @@ from XRootD import client
 import numpy as np
 
 
-file_lorigins = open("origins.txt", "r")
+file_lorigins = open("/opt/OSDFvis/origins.txt", "r")
 lorigins = lines = file_lorigins.read().splitlines()
 db_pass = open("/opt/pass", "r")
 
@@ -20,7 +20,15 @@ user="cachemon"
 db="cachemon_db"
 
 key = 'CACHE_FQDN'
+for line in open("/etc/xrootd-environment", 'r'):
+    if(line.find('CACHE_FQDN')):
+        t1 = line.split(" ");
+        cache = t1.split("=")[1]
+
+print(cache)
 cache = os.getenv(key)
+
+
 def executeCommandBD(com, typer):
 
         with open('outooo.txt','w+') as fout:
