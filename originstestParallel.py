@@ -23,7 +23,7 @@ key = 'CACHE_FQDN'
 for line in open("/etc/xrootd-environment", 'r'):
     if(line.find('CACHE_FQDN')):
         t1 = line.split(" ");
-        cache = t1.split("=")[1]
+        cache = t1[1].split("=")[1]
 
 print(cache)
 cache = os.getenv(key)
