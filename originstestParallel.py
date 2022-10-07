@@ -20,14 +20,11 @@ user="cachemon"
 db="cachemon_db"
 
 key = 'CACHE_FQDN'
+cache = 'NONONONO'
 for line in open("/etc/xrootd-environment", 'r'):
-    if(line.find('CACHE_FQDN') == -1):
+    if(line.find('CACHE_FQDN') != -1):
         t1 = line.split(" ");
         cache = t1[1].split("=")[1]
-
-print(cache)
-cache = os.getenv(key)
-
 
 def executeCommandBD(com, typer):
 
