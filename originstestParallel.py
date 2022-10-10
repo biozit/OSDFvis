@@ -9,7 +9,7 @@ import time
 from XRootD import client
 import numpy as np
 from influxdb import InfluxDBClient
-from datetime import date
+from datetime import datetime
 
 file_lorigins = open("/opt/OSDFvis/origins.txt", "r")
 lorigins = lines = file_lorigins.read().splitlines()
