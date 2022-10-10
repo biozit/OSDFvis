@@ -74,6 +74,8 @@ tmppath = "/xcache/"
 
 for origin in lorigins:
         try: 
+                oradd = origin.split(" ")[0]
+
                 try:
                     hosto = origin.split(" ")[0]
                     hosto = hosto.split("//")[1]
@@ -101,7 +103,6 @@ for origin in lorigins:
                                 print(e)
                                 traceback.print_exc()
 
-                oradd = origin.split(" ")[0]
                 for n in range(0, tests):
                        if(os.path.exists(tmppath+"t"+str(n))):
                               os.remove(tmppath+"/t"+str(n))
