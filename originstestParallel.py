@@ -146,7 +146,7 @@ for origin in lorigins:
 
                 print("MEDIA___________"+str(media))
                 
-                dbc = "curl --user " +user+":"+password+ " -XPOST " + URL+"/write?db="+db+" --data-binary 'heatmappar,origin="+oradd+"|"+cache+" value="+str(media)+"'";
+                dbc = "/usr/bin/curl --user " +user+":"+password+ " -XPOST " + URL+"/write?db="+db+" --data-binary 'heatmappar,origin="+oradd+"|"+cache+" value="+str(media)+"'";
                 print(dbc)
                 executeCommandBD(dbc,1);
                 print(dbc)
@@ -155,7 +155,7 @@ for origin in lorigins:
                               os.remove(tmppath+"t"+str(n))
  
         except Exception as e:
-                dbc = "curl --user " +user+":"+password+ " -XPOST " + URL+"/write?db="+db+" --data-binary 'heatmappar,origin="+oradd+"|"+cache+" value=-100'";
+                dbc = "/usr/bin/curl --user " +user+":"+password+ " -XPOST " + URL+"/write?db="+db+" --data-binary 'heatmappar,origin="+oradd+"|"+cache+" value=-100'";
                 executeCommandBD(dbc,1);
                 print(e)
                 traceback.print_exc()

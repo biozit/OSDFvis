@@ -107,10 +107,10 @@ for origin in lorigins:
                 oradd = origin.split(" ")[0]
                 oradd = oradd.split("//")[1]
                 oradd = oradd.split(":")[0]
-                cc = "ping -c 4 "+oradd
+                cc = "/usr/bin/ping -c 4 "+oradd
                 ex = executeCommandBD(cc,2)
                 resp = getLatency(ex)
-                dbc = "curl --user " +user+":"+password+ " -XPOST " + URL+"/write?db="+db+" --data-binary 'heatmaplt,origin="+ioradd+"|"+cache+" value="+str(resp)+"'";
+                dbc = "/usr/bin/curl --user " +user+":"+password+ " -XPOST " + URL+"/write?db="+db+" --data-binary 'heatmaplt,origin="+ioradd+"|"+cache+" value="+str(resp)+"'";
                 executeCommandBD(dbc,1);
         except Exception as e:
                 print(e)
