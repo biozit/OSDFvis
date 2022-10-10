@@ -107,7 +107,7 @@ for origin in lorigins:
                         "tags": {  
                             "brushId": oradd+"|"+cache  
                         },  
-                        "time": date.timestamp(date.today()),  
+                        "time": datetime.utcnow().isoformat() + "Z",
                         "fields": {  
                             "duration": str(media) 
                         }  
