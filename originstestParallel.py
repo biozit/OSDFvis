@@ -55,8 +55,6 @@ def checkSize(ftt,timeout):
                     end = time.time()
                     el = end - seconds;
                     sleep(1)
-                    #print(el) 
-                    #print("file" +str(ftt)+ " "+ str(el)+" size "+str(file_size))
                     if(el > timeout):
                            run = False
              except Exception as e:
@@ -103,18 +101,18 @@ for origin in lorigins:
 
                 print("MEDIA___________"+str(media))
                 
-                json_body = [ 
-                    {
-                        "measurement": "heatmappar",
-                        "tags": {
-                            "origin": oradd+"|"+cache
-                        },
-                    "time": date.today(),
-                    "fields": {
-                        "value": str(media)
-                        }
-                   }
-                ] 
+                json_body = [  
+                    {  
+                        "measurement": "heatmappar",  
+                        "tags": {  
+                            "brushId": oradd+"|"+cache  
+                        },  
+                        "time": date.today(),  
+                        "fields": {  
+                            "duration": str(media) 
+                        }  
+                    },  
+                ]
                 clientflux.write(json_body)
            
                 for n in range(0, tests):
