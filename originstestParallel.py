@@ -80,7 +80,7 @@ for origin in lorigins:
 
                 dataping = ping(hosto, count=10)
                 for d in dataping:
-                    print(type(d))
+                    print(d.time_elapsed)
  
                 json_body = [  
                     {  
