@@ -8,16 +8,17 @@ from subprocess import PIPE
 import time
 from XRootD import client
 import numpy as np
-
+from influxdb import InfluxDBClient
 
 file_lorigins = open("/opt/OSDFvis/origins.txt", "r")
 lorigins = lines = file_lorigins.read().splitlines()
 db_pass = open("/opt/pass", "r")
 
-URL="http://graph.t2.ucsd.edu:8086"
+URL="http://graph.t2.ucsd.edu"
 password=db_pass.readline().strip()
 user="cachemon"
 db="cachemon_db"
+
 
 key = 'CACHE_FQDN'
 cache = 'NONONONO'
@@ -26,55 +27,8 @@ for line in open("/etc/xrootd-environment", 'r'):
         t1 = line.split(" ");
         cache = t1[1].split("=")[1]
 
-def executeCommandBD(com, typer):
 
-        with open('outooo.txt','w+') as fout:
-                with open('errooo.txt','w+') as ferr:
-                        out=subprocess.call([com],stdout=fout,stderr=ferr,timeout=500,shell=True)
-                        fout.seek(0)
-                        output=fout.read()
-                        ferr.seek(0)
-                        errors = ferr.read()
-                        if(typer == 1):
-                               return errors
-                        else:
-                               return output
-def getSpeed(datoutput, prot):
-        size = 0
-        time = 0
-        try:   
-               if(prot == 1):
-
-                      for l in datoutput.splitlines():
-                            if(l.find("Length") != -1):
-                                  size = float(l.split(" ")[1])
-                            if(l.find("100%") != -1):
-                                   time = float(l.split("=")[1].replace("s",""))
-                      resp = size/time
-                      print(resp)
-                      return resp
-               else:
-                      datoutput = datoutput.split("]")
-                      speed = datoutput[len(datoutput)-2]
-                      if(speed.find("MB") != -1):
-                            m = 1048576
-                      else:
-                            m = 1024
-                      speed = speed.replace("[","");
-                      speed = speed.replace("M","");
-                      speed = speed.replace("k","");
-                      speed = speed.replace("B","");
-                      speed = speed.replace("/","");
-                      speed = speed.replace("s","");
-                      speed = float(speed) * m
-                      print(speed)
-                      return speed
-
-        except Exception as e:
-               traceback.print_exc()
-               return "timeout"
-
-
+clientflux = InfluxDBClient(URL, 8086, user, passwd, db)
 def xrdcpy(origin,n,timeout):
         process = client.CopyProcess()
 
@@ -116,6 +70,8 @@ dr = np.empty(tests)
 timeout = 10;
 tmppath = "/xcache/"
 
+
+
 for origin in lorigins:
         try: 
                 oradd = origin.split(" ")[0]
@@ -147,9 +103,20 @@ for origin in lorigins:
                 print("MEDIA___________"+str(media))
                 
                 dbc = "/usr/bin/curl --user " +user+":"+password+ " -XPOST " + URL+"/write?db="+db+" --data-binary 'heatmappar,origin="+oradd+"|"+cache+" value="+str(media)+"'";
-                print(dbc)
-                executeCommandBD(dbc,1);
-                print(dbc)
+                json_body = [
+                {
+                    "measurement": "heatmappar",
+                    "tags": {
+                    "origin": oradd+"|"+cache+
+                },
+                    "time": date.today(),
+                    "fields": {
+                    "value": str(media)
+                }
+                }
+                ] 
+                clientflux.write(json_body)
+           
                 for n in range(0, tests):
                        if(os.path.exists(tmppath+"t"+str(n))):
                               os.remove(tmppath+"t"+str(n))
