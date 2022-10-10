@@ -10,6 +10,7 @@ from XRootD import client
 import numpy as np
 from influxdb import InfluxDBClient
 from datetime import datetime
+from pythonping import ping
 
 file_lorigins = open("/opt/OSDFvis/origins.txt", "r")
 lorigins = lines = file_lorigins.read().splitlines()
@@ -62,7 +63,7 @@ def checkSize(ftt,timeout):
                     traceback.print_exc()
             
 
-tests = 5
+tests = 1
 threads = []
 threadsTimer = []
 dr = np.empty(tests)
@@ -118,6 +119,15 @@ for origin in lorigins:
                 for n in range(0, tests):
                        if(os.path.exists(tmppath+"t"+str(n))):
                               os.remove(tmppath+"t"+str(n))
+                
+                hosto = origin.split(" ")[0]
+                hosto = host.split("//")[1]
+                hosto = hosto.split(":")[0]
+
+                dataping = ping(hosto, count=10)
+                for d in dataping:
+                    print(d)
+                
  
         except Exception as e:
                 print(e)
