@@ -75,7 +75,7 @@ tmppath = "/xcache/"
 for origin in lorigins:
         try: 
                 oradd = origin.split(" ")[0]
-
+                cache = cache.strip()
                 try:
                     hosto = origin.split(" ")[0]
                     hosto = hosto.split("//")[1]
