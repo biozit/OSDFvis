@@ -28,7 +28,7 @@ for line in open("/etc/xrootd-environment", 'r'):
         cache = t1[1].split("=")[1]
 
 
-clientflux = InfluxDBClient(URL, 8086, user, passwd, db)
+clientflux = InfluxDBClient(URL, 8086, user, password, db)
 def xrdcpy(origin,n,timeout):
         process = client.CopyProcess()
 
@@ -111,7 +111,7 @@ for origin in lorigins:
                     "time": date.today(),
                     "fields": {
                         "value": str(media)
-                    }
+                        }
                    }
                 ] 
                 clientflux.write(json_body)
@@ -121,8 +121,6 @@ for origin in lorigins:
                               os.remove(tmppath+"t"+str(n))
  
         except Exception as e:
-                dbc = "/usr/bin/curl --user " +user+":"+password+ " -XPOST " + URL+"/write?db="+db+" --data-binary 'heatmappar,origin="+oradd+"|"+cache+" value=-100'";
-                executeCommandBD(dbc,1);
                 print(e)
                 traceback.print_exc()
 
