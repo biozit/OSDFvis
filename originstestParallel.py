@@ -15,7 +15,7 @@ file_lorigins = open("/opt/OSDFvis/origins.txt", "r")
 lorigins = lines = file_lorigins.read().splitlines()
 db_pass = open("/opt/pass", "r")
 
-URL="http://graph.t2.ucsd.edu"
+URL="graph.t2.ucsd.edu"
 password=db_pass.readline().strip()
 user="cachemon"
 db="cachemon_db"
