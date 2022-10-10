@@ -74,27 +74,32 @@ tmppath = "/xcache/"
 
 for origin in lorigins:
         try: 
-                hosto = origin.split(" ")[0]
-                hosto = hosto.split("//")[1]
-                hosto = hosto.split(":")[0]
-
-                dataping = ping(hosto, count=10)
-                for d in dataping:
-                    print(d.time_elapsed)
+                try:
+                    hosto = origin.split(" ")[0]
+                    hosto = hosto.split("//")[1]
+                    hosto = hosto.split(":")[0]
+                    media = 0;
+                    dataping = ping(hosto, count=10)
+                    for d in dataping:
+                        media = media + d.time_elapsed
  
-                json_body = [  
-                    {  
-                        "measurement": "heatmaplt",  
-                        "tags": {  
-                            "origin": oradd+"|"+cache  
+                    json_body = [  
+                        {  
+                            "measurement": "heatmaplt",  
+                            "tags": {  
+                                "origin": oradd+"|"+cache  
+                            },  
+                            "time": datetime.utcnow().isoformat() + "Z",
+                            "fields": {  
+                                "duration": str(media) 
+                            }  
                         },  
-                        "time": datetime.utcnow().isoformat() + "Z",
-                        "fields": {  
-                            "duration": str(media) 
-                        }  
-                    },  
-                ]
-                clientflux.write_points(json_body)
+                    ]
+                    clientflux.write_points(json_body)
+
+                except Exception as e:
+                                print(e)
+                                traceback.print_exc()
 
                 oradd = origin.split(" ")[0]
                 for n in range(0, tests):
