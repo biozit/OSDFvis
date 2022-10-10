@@ -105,7 +105,7 @@ for origin in lorigins:
                     {  
                         "measurement": "heatmappar",  
                         "tags": {  
-                            "brushId": oradd+"|"+cache  
+                            "origin": oradd+"|"+cache  
                         },  
                         "time": datetime.utcnow().isoformat() + "Z",
                         "fields": {  
