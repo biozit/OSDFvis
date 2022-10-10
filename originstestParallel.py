@@ -74,6 +74,28 @@ tmppath = "/xcache/"
 
 for origin in lorigins:
         try: 
+                hosto = origin.split(" ")[0]
+                hosto = hosto.split("//")[1]
+                hosto = hosto.split(":")[0]
+
+                dataping = ping(hosto, count=10)
+                for d in dataping:
+                    print(d[1])
+ 
+                json_body = [  
+                    {  
+                        "measurement": "heatmaplt",  
+                        "tags": {  
+                            "origin": oradd+"|"+cache  
+                        },  
+                        "time": datetime.utcnow().isoformat() + "Z",
+                        "fields": {  
+                            "duration": str(media) 
+                        }  
+                    },  
+                ]
+                clientflux.write_points(json_body)
+
                 oradd = origin.split(" ")[0]
                 for n in range(0, tests):
                        if(os.path.exists(tmppath+"t"+str(n))):
@@ -120,14 +142,7 @@ for origin in lorigins:
                        if(os.path.exists(tmppath+"t"+str(n))):
                               os.remove(tmppath+"t"+str(n))
                 
-                hosto = origin.split(" ")[0]
-                hosto = hosto.split("//")[1]
-                hosto = hosto.split(":")[0]
-
-                dataping = ping(hosto, count=10)
-                for d in dataping:
-                    print(d)
-                
+               
  
         except Exception as e:
                 print(e)
