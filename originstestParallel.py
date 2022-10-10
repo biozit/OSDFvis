@@ -102,18 +102,17 @@ for origin in lorigins:
 
                 print("MEDIA___________"+str(media))
                 
-                dbc = "/usr/bin/curl --user " +user+":"+password+ " -XPOST " + URL+"/write?db="+db+" --data-binary 'heatmappar,origin="+oradd+"|"+cache+" value="+str(media)+"'";
-                json_body = [
-                {
-                    "measurement": "heatmappar",
-                    "tags": {
-                    "origin": oradd+"|"+cache+
-                },
+                json_body = [ 
+                    {
+                        "measurement": "heatmappar",
+                        "tags": {
+                            "origin": oradd+"|"+cache
+                        },
                     "time": date.today(),
                     "fields": {
-                    "value": str(media)
-                }
-                }
+                        "value": str(media)
+                    }
+                   }
                 ] 
                 clientflux.write(json_body)
            
