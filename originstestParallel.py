@@ -113,7 +113,7 @@ for origin in lorigins:
                         }  
                     },  
                 ]
-                clientflux.write(json_body)
+                clientflux.write_points(json_body)
            
                 for n in range(0, tests):
                        if(os.path.exists(tmppath+"t"+str(n))):
