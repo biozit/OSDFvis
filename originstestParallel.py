@@ -121,7 +121,7 @@ for origin in lorigins:
                               os.remove(tmppath+"t"+str(n))
                 
                 hosto = origin.split(" ")[0]
-                hosto = host.split("//")[1]
+                hosto = hosto.split("//")[1]
                 hosto = hosto.split(":")[0]
 
                 dataping = ping(hosto, count=10)
