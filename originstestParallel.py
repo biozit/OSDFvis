@@ -93,7 +93,7 @@ for origin in lorigins:
                             },  
                             "time": datetime.utcnow().isoformat() + "Z",
                             "fields": {  
-                                "duration": str(media) 
+                                "value": str(media) 
                             }  
                         },  
                     ]
@@ -138,7 +138,7 @@ for origin in lorigins:
                         },  
                         "time": datetime.utcnow().isoformat() + "Z",
                         "fields": {  
-                            "duration": str(media) 
+                            "value": str(media) 
                         }  
                     },  
                 ]
