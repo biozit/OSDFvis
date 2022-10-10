@@ -80,7 +80,7 @@ for origin in lorigins:
                     hosto = origin.split(" ")[0]
                     hosto = hosto.split("//")[1]
                     hosto = hosto.split(":")[0]
-                    media = 0;
+                    media = 0.0;
                     dataping = ping(hosto, count=10)
                     for d in dataping:
                         media = media + d.time_elapsed
@@ -93,7 +93,7 @@ for origin in lorigins:
                             },  
                             "time": datetime.utcnow().isoformat() + "Z",
                             "fields": {  
-                                "value": media 
+                                "value": float(media) 
                             }  
                         },  
                     ]
@@ -119,7 +119,7 @@ for origin in lorigins:
                 for x in threads:
                        x.join()
                 print("join copy")
-                media = 0
+                media = 0.0
                 for n in dr:
                        print(n)
                        media = media + n;
@@ -138,7 +138,7 @@ for origin in lorigins:
                         },  
                         "time": datetime.utcnow().isoformat() + "Z",
                         "fields": {  
-                            "value": media 
+                            "value": float(media) 
                         }  
                     },  
                 ]
