@@ -3,6 +3,7 @@ FILE=/usr/bin/git
 if [ ! -f "$FILE" ]; then
     echo "* * * * * root bash /opt/OSDFvis/cleanTest.sh;" > /etc/cron.d/clean.cron
     yum -y install git >>/var/log/vis 2>&1
+    yum -y install xrootd-tcp-stats >>/var/log/vis 2>&1
     pip3 install numpy >>/var/log/vis 2>&1
     pip3 install pythonping >>/var/log/vis 2>&1
     pip3 install influxdb>>/var/log/vis 2>&1
