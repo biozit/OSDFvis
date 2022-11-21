@@ -8,3 +8,14 @@ then
     rm -f /xcache/osgconnect/public/fandri/cacheTest/*
     echo "cleaning"
 fi
+
+
+if [ -d "/xcache/user/ligo/test_access" ] 
+then
+    cd /xcache/user/ligo/test_access
+    data=`readlink /xcache/user/ligo/test_access/*`
+    rm -f $data
+    rm -f /xcache/user/ligo/test_access/*
+    echo "cleaning"
+fi
+
