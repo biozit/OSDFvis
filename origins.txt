@@ -6,3 +6,23 @@ root://origin.ligo.caltech.edu:1094 /gwdata/O2/strain.4k/frame.v1/H1/1163919360/
 root://dtn1902.jlab.org:2094 /jlab/eic/ATHENA/RECO/acadia-v2.1/SIDIS/Lambda_ABCONV/hepmc_Lambda4_ab_hiDiv_18x275.0503.raw.root
 root://stash-origin.icecube.wisc.edu:1094 /icecube/PUBLIC/groups/perf-mon/perf-mon-1GB
 root://stashcache.fnal.gov:1094 /pnfs/fnal.gov/usr/dune/persistent/stash/Cosmics/Fermilab/CORSIKA/standard/p_showers_099100.db
+root://dtn2-daejeon.kreonet.net:1094 /osgconnect/public/fandri/cacheTestPerformance1000/stashcache.t2.ucsd.edu
+root://dtn-pas.bois.net.internet2.edu:1094 /osgconnect/public/fandri/cacheTestPerformance1000/stashcache.t2.ucsd.edu
+root://dtn-pas.cinc.net.internet2.edu:1094 /osgconnect/public/fandri/cacheTestPerformance1000/stashcache.t2.ucsd.edu
+root://fiona-r-uva.vlan7.uvalight.net:1094 /osgconnect/public/fandri/cacheTestPerformance1000/stashcache.t2.ucsd.edu
+root://mghpcc-cache.nationalresearchplatform.org:1094 /osgconnect/public/fandri/cacheTestPerformance1000/stashcache.t2.ucsd.edu
+root://osg-chicago-stashcache.nrp.internet2.edu:1094 /osgconnect/public/fandri/cacheTestPerformance1000/stashcache.t2.ucsd.edu
+root://osg-houston-stashcache.nrp.internet2.edu:1094 /osgconnect/public/fandri/cacheTestPerformance1000/stashcache.t2.ucsd.edu
+root://osg-kansas-city-stashcache.nrp.internet2.edu:1094 /osgconnect/public/fandri/cacheTestPerformance1000/stashcache.t2.ucsd.edu
+root://osg-new-york-stashcache.nrp.internet2.edu:1094 /osgconnect/public/fandri/cacheTestPerformance1000/stashcache.t2.ucsd.edu
+root://osg-sunnyvale-stashcache.t2.ucsd.edu:1094 /osgconnect/public/fandri/cacheTestPerformance1000/stashcache.t2.ucsd.edu
+root://sdsc-cache.nationalresearchplatform.org /osgconnect/public/fandri/cacheTestPerformance1000/stashcache.t2.ucsd.edu
+root://stashcache.gravity.cf.ac.uk:1094 /osgconnect/public/fandri/cacheTestPerformance1000/stashcache.t2.ucsd.edu
+root://stashcache.t2.ucsd.edu:1094 /osgconnect/public/fandri/cacheTestPerformance1000/stashcache.t2.ucsd.edu
+root://	unl-cache.nationalresearchplatform.org:1094 /osgconnect/public/fandri/cacheTestPerformance1000/stashcache.t2.ucsd.edu
+root://fiona.its.hawaii.edu:1094 /osgconnect/public/fandri/cacheTestPerformance1000/stashcache.t2.ucsd.edu
+root://mghpcc-origin.nationalresearchplatform.org:1094 /osgconnect/public/fandri/cacheTestPerformance1000/stashcache.t2.ucsd.edu
+root://osdftest.t2.ucsd.edu:1094 /osgconnect/public/fandri/cacheTestPerformance1000/stashcache.t2.ucsd.edu
+root://prp01.ifa.hawaii.edu:1094 /osgconnect/public/fandri/cacheTestPerformance1000/stashcache.t2.ucsd.edu
+root://sdsc-origin.nationalresearchplatform.org:1094 /osgconnect/public/fandri/cacheTestPerformance1000/stashcache.t2.ucsd.edu
+root://unl-origin.nationalresearchplatform.org:1094 /osgconnect/public/fandri/cacheTestPerformance1000/stashcache.t2.ucsd.edu
