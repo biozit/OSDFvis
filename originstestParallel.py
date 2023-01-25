@@ -28,7 +28,13 @@ for line in open("/etc/xrootd-environment", 'r'):
     if(line.find('CACHE_FQDN') != -1):
         t1 = line.split(" ");
         cache = t1[1].split("=")[1]
-
+        
+if(cache == 'NONONONO'):
+    for line in open("/etc/xrootd-environment", 'r'):
+        if(line.find('ORIGIN_FQDN') != -1):
+            t1 = line.split(" ");
+            cache = t1[1].split("=")[1]
+        
 
 clientflux = InfluxDBClient(URL, 8086, user, password, db)
 def xrdcpy(origin,n,timeout):
