@@ -69,7 +69,7 @@ def checkSize(ftt,timeout):
                     traceback.print_exc()
             
 
-tests = 2
+tests = 1
 threads = []
 threadsTimer = []
 dr = np.empty(tests)
@@ -131,7 +131,6 @@ for origin in lorigins:
                        media = media + n;
 
                 media = media / len(dr)
-
 
                 print("MEDIA___________"+str(media))
                 
