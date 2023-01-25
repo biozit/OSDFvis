@@ -126,7 +126,6 @@ for origin in lorigins:
 
                 media = media / len(dr)
 
-                media = media/timeout
 
                 print("MEDIA___________"+str(media))
                 
