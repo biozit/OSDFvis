@@ -21,8 +21,8 @@ root://stashcache.gravity.cf.ac.uk:1094 /osgconnect/public/fandri/cacheTestPerfo
 root://stashcache.t2.ucsd.edu:1094 /osgconnect/public/fandri/cacheTestPerformance1000/stashcache.t2.ucsd.edu
 root://unl-cache.nationalresearchplatform.org:1094 /osgconnect/public/fandri/cacheTestPerformance1000/stashcache.t2.ucsd.edu
 root://fiona.its.hawaii.edu:1094 /osgconnect/public/fandri/cacheTestPerformance1000/stashcache.t2.ucsd.edu
-root://mghpcc-origin.nationalresearchplatform.org:1094 /osgconnect/public/fandri/cacheTestPerformance1000/stashcache.t2.ucsd.edu
+root://mghpcc-origin.nationalresearchplatform.org:1094 /osdftest/test/stashcache.t2.ucsd.edu
 root://osdftest.t2.ucsd.edu:1094 /osgconnect/public/fandri/cacheTestPerformance1000/stashcache.t2.ucsd.edu
 root://prp01.ifa.hawaii.edu:1094 /osgconnect/public/fandri/cacheTestPerformance1000/stashcache.t2.ucsd.edu
 root://sdsc-origin.nationalresearchplatform.org:1094 /osdftest/test/stashcache.t2.ucsd.edu
-root://unl-origin.nationalresearchplatform.org:1094 /osgconnect/public/fandri/cacheTestPerformance1000/stashcache.t2.ucsd.edu
+root://unl-origin.nationalresearchplatform.org:1094 /osdftest/test/stashcache.t2.ucsd.edu
