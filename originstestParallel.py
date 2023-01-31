@@ -74,7 +74,7 @@ threads = []
 threadsTimer = []
 dr = np.empty(tests)
 timeout = 10;
-tmppath = "/xcache/"
+tmppath = "/tmp/"
 
 
 
