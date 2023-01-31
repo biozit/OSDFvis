@@ -4,13 +4,14 @@ import os
 import traceback
 from time import sleep, perf_counter
 from threading import Thread
-from subprocess import PIPE 
+from subprocess import PIPE
 import time
 from XRootD import client
 import numpy as np
 from influxdb import InfluxDBClient
 from datetime import datetime
 from pythonping import ping
+from XRootD.client.flags import DirListFlags
 
 file_lorigins = open("/opt/OSDFvis/origins.txt", "r")
 lorigins = lines = file_lorigins.read().splitlines()
@@ -28,15 +29,16 @@ for line in open("/etc/xrootd-environment", 'r'):
     if(line.find('CACHE_FQDN') != -1):
         t1 = line.split(" ");
         cache = t1[1].split("=")[1]
-        
+
 if(cache == 'NONONONO'):
     for line in open("/etc/xrootd-environment", 'r'):
         if(line.find('ORIGIN_FQDN') != -1):
             t1 = line.split(" ");
             cache = t1[1].split("=")[1]
-        
+
 
 clientflux = InfluxDBClient(URL, 8086, user, password, db)
+
 def xrdcpy(origin,n,timeout):
         process = client.CopyProcess()
 
@@ -46,40 +48,43 @@ def xrdcpy(origin,n,timeout):
         print(server)
         print(filet)
         myclient = client.FileSystem(server)
-        status = myclient.copy(server+filet,'/xcache/t'+str(n), force=True)
+        seconds = time.time()
+        status = myclient.copy(server+filet,'/tmp/t'+str(n), force=True)
+        el = time.time() - seconds;
+        drt[n] = el
         print(status)
 
 def checkSize(ftt,timeout):
      seconds = time.time()
      run = True
-     sleep(2)
      while(run == True):
              try:
-                    path = tmppath+"t"+str(ftt);   
-                    if(os.path.exists(path)):   
-                           file_size = os.path.getsize(path)
-                           dr[ftt] = file_size
+                    path = tmppath+"t"+str(ftt);
                     end = time.time()
                     el = end - seconds;
-                    sleep(1)
+                    if(os.path.exists(path)):
+                           file_size = os.path.getsize(path)
+                           dr[ftt] = file_size
+                    sleep(0.1)
                     if(el > timeout):
                            run = False
              except Exception as e:
                     print(e)
                     traceback.print_exc()
-            
+
 
 tests = 1
 threads = []
 threadsTimer = []
 dr = np.empty(tests)
+drt = np.empty(tests)
 timeout = 10;
 tmppath = "/tmp/"
 
 
 
 for origin in lorigins:
-        try: 
+        try:
                 oradd = origin.split(" ")[0]
                 cache = cache.strip()
                 try:
@@ -90,18 +95,18 @@ for origin in lorigins:
                     dataping = ping(hosto, count=10)
                     for d in dataping:
                         media = media + d.time_elapsed
- 
-                    json_body = [  
-                        {  
-                            "measurement": "heatmaplt",  
-                            "tags": {  
-                                "origin": oradd+"|"+cache  
-                            },  
+
+                    json_body = [
+                        {
+                            "measurement": "heatmaplt",
+                            "tags": {
+                                "origin": oradd+"|"+cache
+                            },
                             "time": datetime.utcnow().isoformat() + "Z",
-                            "fields": {  
-                                "value": float(media) 
-                            }  
-                        },  
+                            "fields": {
+                                "value": float(media)
+                            }
+                        },
                     ]
                     clientflux.write_points(json_body)
 
@@ -125,36 +130,46 @@ for origin in lorigins:
                 for x in threads:
                        x.join()
                 print("join copy")
-                media = 0.0
+
+                medias = 0.0
+                ct = 0
                 for n in dr:
                        print(n)
-                       media = media + n;
+                       print(drt[ct])
+                       if(drt[ct] < timeout):
+                             v = n / drt[ct];
+                             print("aa")
+                       else:
+                             v = n / timeout;
+                             print("bb")
+                       medias = medias + v;
+                       ct = ct + 1
 
-                media = media / len(dr)
+                media = medias / len(dr)
 
-                print("MEDIA___________"+str(media))
-                
-                json_body = [  
-                    {  
-                        "measurement": "heatmappar",  
-                        "tags": {  
-                            "origin": oradd+"|"+cache  
-                        },  
+
+                print("MEDIA___________"+str(medias))
+
+                json_body = [
+                    {
+                        "measurement": "heatmappar",
+                        "tags": {
+                            "origin": oradd+"|"+cache
+                        },
                         "time": datetime.utcnow().isoformat() + "Z",
-                        "fields": {  
-                            "value": float(media) 
-                        }  
-                    },  
+                        "fields": {
+                            "value": float(media)
+                        }
+                    },
                 ]
                 clientflux.write_points(json_body)
-           
+
                 for n in range(0, tests):
                        if(os.path.exists(tmppath+"t"+str(n))):
                               os.remove(tmppath+"t"+str(n))
-                
-               
- 
+
+
+
         except Exception as e:
                 print(e)
                 traceback.print_exc()
-
