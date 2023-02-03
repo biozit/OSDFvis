@@ -73,7 +73,7 @@ def checkSize(ftt,timeout):
                     traceback.print_exc()
 
 
-tests = 10
+tests = 1
 threads = []
 threadsTimer = []
 dr = np.empty(tests)
