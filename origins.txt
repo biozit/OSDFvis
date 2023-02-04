@@ -6,7 +6,7 @@ root://origin.ligo.caltech.edu:1094 /gwdata/O2/strain.4k/frame.v1/H1/1163919360/
 root://dtn1902.jlab.org:2094 /jlab/eic/ATHENA/RECO/acadia-v2.1/SIDIS/Lambda_ABCONV/hepmc_Lambda4_ab_hiDiv_18x275.0503.raw.root
 root://stash-origin.icecube.wisc.edu:1094 /icecube/PUBLIC/groups/perf-mon/perf-mon-1GB
 root://stashcache.fnal.gov:1094 /pnfs/fnal.gov/usr/dune/persistent/stash/Cosmics/Fermilab/CORSIKA/standard/p_showers_099100.db
-root://dtn2-daejeon.kreonet.net:1094 /osgconnect/public/fandri/cacheTestPerformance1000/stashcache.t2.ucsd.edu
+root://daejeon-kreonet-net.nationalresearchplatform.org:1094 /osgconnect/public/fandri/cacheTestPerformance1000/stashcache.t2.ucsd.edu
 root://dtn-pas.bois.nrp.internet2.edu:1094 /osgconnect/public/fandri/cacheTestPerformance1000/stashcache.t2.ucsd.edu
 root://dtn-pas.cinc.nrp.internet2.edu:1094 /osgconnect/public/fandri/cacheTestPerformance1000/stashcache.t2.ucsd.edu
 root://fiona-r-uva.vlan7.uvalight.net:1094 /osgconnect/public/fandri/cacheTestPerformance1000/stashcache.t2.ucsd.edu
