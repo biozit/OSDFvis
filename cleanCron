@@ -1,1 +1,2 @@
 #45 * * * * root bash /opt/OSDFvis/cleanTest.sh;
+0 */6 * * * root supervisorctl restart stash-cache-auth; supervisorctl restart stash-cache;
