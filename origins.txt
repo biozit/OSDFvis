@@ -26,3 +26,4 @@ root://osdftest.t2.ucsd.edu:1094 /osgconnect/public/fandri/cacheTestPerformance1
 root://prp01.ifa.hawaii.edu:1094 /osgconnect/public/fandri/cacheTestPerformance1000/stashcache.t2.ucsd.edu
 root://sdsc-origin.nationalresearchplatform.org:1094 /osdftest/test/stashcache.t2.ucsd.edu
 root://unl-origin.nationalresearchplatform.org:1094 /osdftest/test/stashcache.t2.ucsd.edu
+root://dtn-pas.jack.nrp.internet2.edu:1094 /osdftest/test/stashcache.t2.ucsd.edu
