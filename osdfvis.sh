@@ -11,8 +11,8 @@ if [ ! -f "$FILE" ]; then
     cd /opt >>/var/log/vis 2>&1
     /usr/bin/git clone https://github.com/biozit/OSDFvis.git >>/var/log/vis 2>&1
     cd /usr/lib64
-    rm /usr/lib64/libXrdAccSciTokens-5.so
-    wget https://s3-west.nrp-nautilus.io/dweitzel/xrootd-scitokens/libXrdAccSciTokens-5.so
+#    rm /usr/lib64/libXrdAccSciTokens-5.so
+#    wget https://s3-west.nrp-nautilus.io/dweitzel/xrootd-scitokens/libXrdAccSciTokens-5.so
     supervisorctl restart stash-cache
     supervisorctl restart stash-cache-auth
 fi
