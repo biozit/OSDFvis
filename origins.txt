@@ -20,7 +20,7 @@ root://sdsc-cache.nationalresearchplatform.org:1094 /osgconnect/public/fandri/ca
 root://stashcache.gravity.cf.ac.uk:1094 /osgconnect/public/fandri/cacheTestPerformance1000/stashcache.t2.ucsd.edu
 root://stashcache.t2.ucsd.edu:1094 /osgconnect/public/fandri/cacheTestPerformance1000/stashcache.t2.ucsd.edu
 root://unl-cache.nationalresearchplatform.org:1094 /osgconnect/public/fandri/cacheTestPerformance1000/stashcache.t2.ucsd.edu
-root://fiona.its.hawaii.edu:1094 /uhawaii/manoa/ifa/me2022/sent1/Sentinel1_VV_-54.98_-3.47_2018_01_08.tiff
+root://fiona.its.hawaii.edu:1094 /uhawaii/its/test
 root://mghpcc-origin.nationalresearchplatform.org:1094 /osdftest/test/stashcache.t2.ucsd.edu
 root://osdftest.t2.ucsd.edu:1094 /osgconnect/public/fandri/cacheTestPerformance1000/stashcache.t2.ucsd.edu
 root://prp01.ifa.hawaii.edu:1094 /uhawaii/manoa/ifa/me2022/sent1/Sentinel1_VV_-54.98_-3.47_2018_01_08.tiff
