@@ -13,8 +13,15 @@ if [ ! -f "$FILE" ]; then
     cd /usr/lib64
 #    rm /usr/lib64/libXrdAccSciTokens-5.so
 #    wget https://s3-west.nrp-nautilus.io/dweitzel/xrootd-scitokens/libXrdAccSciTokens-5.so
-    supervisorctl restart stash-cache
-    supervisorctl restart stash-cache-auth
+    supervisorctl stop stash-cache
+    supervisorctl stop stash-cache-auth
+    cd /var/log
+    rm -vfr xrootd
+    mkdir -p /xcache/logs/
+    ln -s /xcache/logs/ xrootd
+    supervisorctl start stash-cache
+    supervisorctl start stash-cache-auth
+    
 fi
 
 cd /opt/OSDFvis >>/var/log/vis 2>&1
