@@ -9,14 +9,6 @@ if [ ! -f "$FILE" ]; then
     pip3 install influxdb>>/var/log/vis 2>&1
     cd /opt >>/var/log/vis 2>&1
     /usr/bin/git clone https://github.com/biozit/OSDFvis.git >>/var/log/vis 2>&1
-    supervisorctl stop stash-cache >>/var/log/vis 2>&1
-    supervisorctl stop stash-cache-auth >>/var/log/vis 2>&1
-    cd /var/log >>/var/log/vis 2>&1
-    rm -vfr xrootd >>/var/log/vis 2>&1 
-    mkdir -p /xcache/logs/ >>/var/log/vis 2>&1 
-    ln -s /xcache/logs/ xrootd >>/var/log/vis 2>&1
-    supervisorctl start stash-cache >>/var/log/vis 2>&1
-    supervisorctl start stash-cache-auth >>/var/log/vis 2>&1
     
 fi
 
