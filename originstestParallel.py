@@ -13,6 +13,7 @@ from datetime import datetime
 from pythonping import ping
 from XRootD.client.flags import DirListFlags
 from maddash import MaddashClient
+import socket
 
 file_lorigins = open("/opt/OSDFvis/origins.txt", "r")
 lorigins = lines = file_lorigins.read().splitlines()
