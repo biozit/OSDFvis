@@ -14,6 +14,9 @@ from pythonping import ping
 from XRootD.client.flags import DirListFlags
 from maddash import MaddashClient
 import socket
+import json
+from transfer import TransferTest
+
 
 file_lorigins = open("/opt/OSDFvis/origins.txt", "r")
 lorigins = lines = file_lorigins.read().splitlines()
@@ -24,6 +27,8 @@ password=db_pass.readline().strip()
 user="cachemon"
 db="cachemon_db"
 
+with open('a2a') as g:
+    maddash_conf = json.load(g)
 
 key = 'CACHE_FQDN'
 cache = 'NONONONO'
@@ -164,11 +169,16 @@ for origin in lorigins:
                         }
                     },
                 ]
-                IPAddrorigin=socket.gethostbyname(origin)
-                IPAddrdest=socket.gethostbyname(hosto)
+                print("----------------------"+hosto)
+                print(hosto)
+                IPAddrorigin=socket.gethostbyname(hosto)
+                IPAddrdest=socket.gethostbyname(cache)
                 clientflux.write_points(json_body)
                 maddash_client = MaddashClient(maddash_conf)
                 t = TransferTest(origin,IPAddrdest,hosto,IPAddrorigin,'xrootd',1094,1)
+                measure = [];
+                measure.insert(0,0)
+                measure[0] = media;
                 maddash_client.post(t, measure)
                 for n in range(0, tests):
                        if(os.path.exists(tmppath+"t"+str(n))):
@@ -178,4 +188,4 @@ for origin in lorigins:
 
         except Exception as e:
                 print(e)
-                traceback.print_exc()
+                traceback.print_exc()                                                                                                                              
