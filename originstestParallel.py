@@ -12,6 +12,7 @@ from influxdb import InfluxDBClient
 from datetime import datetime
 from pythonping import ping
 from XRootD.client.flags import DirListFlags
+from maddash import MaddashClient
 
 file_lorigins = open("/opt/OSDFvis/origins.txt", "r")
 lorigins = lines = file_lorigins.read().splitlines()
@@ -162,8 +163,12 @@ for origin in lorigins:
                         }
                     },
                 ]
+                IPAddrorigin=socket.gethostbyname(origin)
+                IPAddrdest=socket.gethostbyname(hosto)
                 clientflux.write_points(json_body)
-
+                maddash_client = MaddashClient(maddash_conf)
+                t = TransferTest(origin,IPAddrdest,hosto,IPAddrorigin,'xrootd',1094,1)
+                maddash_client.post(t, measure)
                 for n in range(0, tests):
                        if(os.path.exists(tmppath+"t"+str(n))):
                               os.remove(tmppath+"t"+str(n))
