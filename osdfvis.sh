@@ -9,8 +9,6 @@ if [ ! -f "$FILE" ]; then
     pip3 install influxdb>>/var/log/vis 2>&1
     cd /opt >>/var/log/vis 2>&1
     /usr/bin/git clone https://github.com/biozit/OSDFvis.git >>/var/log/vis 2>&1
-    echo "u * /ucsd/physics rl" >> /run/stash-cache-auth/Authfile.local
-    echo "u * /ucsd/physics rl" >> /run/stash-cache/Authfile.local
 fi
 
 cd /opt/OSDFvis >>/var/log/vis 2>&1
