@@ -11,6 +11,7 @@ if [ ! -f "$FILE" ]; then
     /usr/bin/git clone https://github.com/biozit/OSDFvis.git >>/var/log/vis 2>&1
     echo "u * /ucsd/physics rl" > /var/run/stash-cache-auth/Authfile.local
     . /etc/xrootd-environment; /usr/libexec/xcache/authfile-update --cache
+    supervisorctl restart stash-cache-auth 
 fi
 
 cd /opt/OSDFvis >>/var/log/vis 2>&1
