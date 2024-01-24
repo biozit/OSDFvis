@@ -1,6 +1,8 @@
-while read p; do
-  echo -n $p
-  echo -n " "
-  timeout 10 xrdfs $p:8443 query config version
-  echo " "
-done <hosts.txt
+#!/bin/bash
+filename='hosts.txt'
+
+while read p; do 
+    echo -n "$p "
+    a=`curl -v --silent $p:1094 2>&1 | grep '< Server:' | awk {'print $3'}`
+    echo $a
+done < "$filename"
