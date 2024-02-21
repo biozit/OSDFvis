@@ -1,0 +1,17 @@
+<TOPIC>
+    <LIST>
+        <Area>JKH</Area>
+        <USED>
+            <type id='123' />
+            <type id='345' />
+        </USED>
+        <DEMAND>
+            <type id='809' />
+            <type id='321' />
+        </DEMAND>
+        <CLOSED>
+            <type id='456' />
+            <type id='765' />
+        </CLOSED>
+    </LIST>
+</TOPIC>

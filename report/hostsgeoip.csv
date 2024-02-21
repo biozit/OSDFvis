@@ -1,0 +1,4 @@
+IP,Type,Hostname,City,Country,CityGeopIP,CountryGeoIP,LatGeo,LongGeop,LatTop,LongTop,Distance(km)
+145.100.133.50,XRootD cache server,fiona-r-uva.vlan7.uvalight.net,Amsterdam,Netherlands,Amsterdam,The Netherlands,52.3716,4.8883,52.3824,4.8995,1.4213282398833686
+198.124.239.2,XRootD cache server,amst-osdf-xcache01.es.net,Amsterdam,Netherlands,Amsterdam,The Netherlands,52.3716,4.8883,52.3546757,4.9591194,5.1638889880050955
+136.186.1.193,XRootD cache server,ligo.hpc.swin.edu.au,Hawthorn,Australia,Adelaide,Australia,-34.9906,138.6152,-37.822741,145.038203,655.196923747548
