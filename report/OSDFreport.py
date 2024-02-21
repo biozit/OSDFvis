@@ -21,11 +21,11 @@ fCaches = open('caches.txt')
 fOrigin = open('origins.txt')
 
 dic = {}
-user = "838862"
-key = "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"
+user = ""
+key = ""
 dict = {}
 bs_data = BeautifulSoup(requests.get("https://topology.opensciencegrid.org/rgsummary/xml").content, 'xml') 
-radar = RadarClient("prj_test_pk_c278f3d47a7d7f9c8931beb44e48fb5f00d15dfb")
+radar = RadarClient("")
 total = 0;
 ok = 0;
 fail = 0;
