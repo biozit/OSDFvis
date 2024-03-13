@@ -9,7 +9,8 @@ if [ ! -f "$FILE" ]; then
     pip3 install influxdb>>/var/log/vis 2>&1
     cd /opt >>/var/log/vis 2>&1
     /usr/bin/git clone https://github.com/biozit/OSDFvis.git >>/var/log/vis 2>&1
-    echo "u * /ucsd/physics rl" > /var/run/stash-cache-auth/Authfile.local
+    echo "u * /ucsd/physics rl" >> /var/run/stash-cache-auth/Authfile.local
+    echo "u * /knightlab rl" >> /var/run/stash-cache-auth/Authfile.local
     . /etc/xrootd-environment; /usr/libexec/xcache/authfile-update --cache
     supervisorctl restart stash-cache-auth 
 fi
